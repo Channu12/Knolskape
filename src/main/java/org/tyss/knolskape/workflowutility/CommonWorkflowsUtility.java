@@ -3,7 +3,6 @@ package org.tyss.knolskape.workflowutility;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.tyss.knolskape.genericutility.ExcelUtility;
 import org.tyss.knolskape.genericutility.FileUtility;
 import org.tyss.knolskape.genericutility.JavaUtility;
 import org.tyss.knolskape.genericutility.RestAssuredUtility;
@@ -11,7 +10,6 @@ import org.tyss.knolskape.genericutility.WebDriverUtility;
 import org.tyss.knolskape.objectrepository.WelcomePage;
 
 public class CommonWorkflowsUtility {
-	ExcelUtility excelUtility = new ExcelUtility();
 	FileUtility fileUtility = new FileUtility();
 	JavaUtility javaUtility = new JavaUtility();
 	RestAssuredUtility restAssuredUtility = new RestAssuredUtility();

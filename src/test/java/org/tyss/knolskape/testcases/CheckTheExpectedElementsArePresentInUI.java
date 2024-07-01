@@ -7,7 +7,8 @@ import org.tyss.knolskape.genericutility.IConstants;
 public class CheckTheExpectedElementsArePresentInUI extends BaseClass {
 
 	@Test
-	public void checkWhetherLinksAreBroken() {
+	public void checkTheExpectedElementsArePresentInUI() {
+		testCaseId = "KN-T3";
 
 		// Welcome Page Links Verification
 		webDriverUtility.checkForBrokenLinks(driver);
@@ -17,7 +18,7 @@ public class CheckTheExpectedElementsArePresentInUI extends BaseClass {
 		String password = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, clientName+"_PASSWORD");
 		commonWorkflowsUtility.signInToApplication(driver, email, password);
 		webDriverUtility.waitForSeconds(6);
-		
+
 		// Home Page Links Verification
 		webDriverUtility.checkForBrokenLinks(driver);
 

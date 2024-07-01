@@ -18,29 +18,37 @@ import org.tyss.knolskape.workflowutility.CommonWorkflowsUtility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
-	public ExcelUtility excelUtility = new ExcelUtility();
 	public FileUtility fileUtility = new FileUtility();
 	public JavaUtility javaUtility = new JavaUtility();
 	public JiraUtility jiraUtility = new JiraUtility();
 	public RestAssuredUtility restAssuredUtility = new RestAssuredUtility();
 	public WebDriverUtility webDriverUtility = new WebDriverUtility();
 	public CommonWorkflowsUtility commonWorkflowsUtility = new CommonWorkflowsUtility();
+	static UtilityObjectClass instance;
 	public WebDriver driver;
-	public String clientName = "";
+	public String clientName;
 	public String testCaseId;
 	String cycleId;
-	
+
 	@BeforeSuite
 	public void configBS(XmlTest config) {
+		instance = UtilityObjectClass.getInstance();
 		clientName = System.getProperty("ClientName", config.getParameter("ClientName"));
-		cycleId = jiraUtility.createTestCycle(clientName+javaUtility.getDateAndTimeInSpecifiedFormat("yyyyMMdd_HHmmss"));
+		instance.setClientName(clientName);
+		System.out.println(clientName);
+		cycleId = jiraUtility.createTestCycle(clientName+"_"+javaUtility.getDateAndTimeInSpecifiedFormat("yyyyMMdd_HHmmss"));
+		instance.setCycleId(cycleId);
 	}
-	
+
 	@BeforeClass
 	public void configBC() {
 		System.out.println("*********Open Browser*********");
 		String browserName = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, "BROWSER_NAME");
+		clientName = instance.getClientName();
+		System.out.println(clientName);
 		String url = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, clientName+"_URL");
+		System.out.println(url);
+
 		if (browserName.trim().equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
@@ -73,6 +81,8 @@ public class BaseClass {
 	@AfterMethod
 	public void configAM(ITestResult result) {
 		//		System.out.println("*********Sign from the Application*********");
+		cycleId = instance.getCycleId();
+		System.out.println(cycleId);
 		if (result.getStatus() == ITestResult.SUCCESS) {
 			jiraUtility.addTestCaseToCycleAndUpdateResults(cycleId, testCaseId, "Pass");
 		} else if (result.getStatus() == ITestResult.FAILURE) {
@@ -81,10 +91,10 @@ public class BaseClass {
 			jiraUtility.addTestCaseToCycleAndUpdateResults(cycleId, testCaseId, "Skip");
 		}
 	}
-	
+
 	@AfterClass
 	public void configAC() {
 		System.out.println("*********Close Browser*********");
-		driver.quit();
+		driver.close();
 	}
 }

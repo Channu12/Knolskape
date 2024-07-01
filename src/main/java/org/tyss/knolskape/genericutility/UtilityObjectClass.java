@@ -1,57 +1,37 @@
 package org.tyss.knolskape.genericutility;
 
-import org.openqa.selenium.WebDriver;
-import org.testng.xml.XmlTest;
-
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-
 public class UtilityObjectClass {
+	private String clientName;
+	private String cycleId;
+	private static UtilityObjectClass instance;
 
-	private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
-	private static ThreadLocal<XmlTest> config = new ThreadLocal<XmlTest>();
+	private UtilityObjectClass() {
 
-	private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
-	private static ThreadLocal<ExtentTest> nodeTest = new ThreadLocal<ExtentTest>();
-	private static ThreadLocal<ExtentReports> report = new ThreadLocal<ExtentReports>();
-
-	public static WebDriver getDriver() {
-		return driver.get();
 	}
 
-	public static void setDriver(WebDriver actDriver) {
-		driver.set(actDriver);
+	public static UtilityObjectClass getInstance() {
+		if(instance == null) {
+			instance = new UtilityObjectClass();
+			return instance;
+		}else {
+			return instance;
+		}
 	}
 
-	public static XmlTest getConfig() {
-		return config.get();
+	public String getClientName() {
+		return clientName;
 	}
 
-	public static void setConfig(XmlTest actConfig) {
-		config.set(actConfig);
+	public String getCycleId() {
+		return cycleId;
 	}
 
-	public static ExtentReports getReport() {
-		return report.get();
+	public void setClientName(String clientName) {
+		this.clientName = clientName;
 	}
 
-	public static void setReport(ExtentReports reports) {
-		report.set(reports);
+	public void setCycleId(String cycleId) {
+		this.cycleId = cycleId;
 	}
 
-	public static ExtentTest getExtentTest() {
-		return extentTest.get();
-	}
-
-	public static void setExtentTest(ExtentTest extent) {
-		extentTest.set(extent);
-	}
-	
-	public static ExtentTest getExtentNodeTest() {
-		return nodeTest.get();
-	}
-
-	public static void setExtentNodeTest(ExtentTest extent) {
-		nodeTest.set(extent);
-	}
 }

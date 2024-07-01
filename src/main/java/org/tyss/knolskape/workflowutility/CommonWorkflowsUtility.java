@@ -22,7 +22,7 @@ public class CommonWorkflowsUtility {
 		webDriverUtility.clickOnELement(driver, welcomePage.getSignInButton());
 	}
 	
-	public boolean getScreenshotOfCurrentPageAndCompareWithGoldenImage(WebDriver driver, String pageName, String appName) throws IOException {
+	public boolean getScreenshotOfCurrentPageAndCompareWithGoldenImage(WebDriver driver, String pageName, String appName, double confidenceScore) throws IOException {
 		// Create resources folder path
 		String resourcesFolderPath = javaUtility.getCurrentProjectDirectory()+"\\src\\test\\resources";
 
@@ -30,7 +30,7 @@ public class CommonWorkflowsUtility {
 		String actualWelcomePagePath = webDriverUtility.getScreenshotOfCurrentPage(driver, pageName, resourcesFolderPath+"\\ActualImages\\"+appName);
 		
 		// Compare screenshot with golden image
-		boolean isPagesAreSame = javaUtility.compareTwoImages(actualWelcomePagePath, resourcesFolderPath+"\\GoldenImages\\"+appName+"\\"+pageName+".png", resourcesFolderPath+"\\DifferenceImages\\"+appName);
+		boolean isPagesAreSame = javaUtility.compareTwoImages(actualWelcomePagePath, resourcesFolderPath+"\\GoldenImages\\"+appName+"\\"+pageName+".png", resourcesFolderPath+"\\DifferenceImages\\"+appName, confidenceScore);
 		return isPagesAreSame;
 	}
 }

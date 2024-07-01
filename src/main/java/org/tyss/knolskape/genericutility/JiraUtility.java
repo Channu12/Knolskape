@@ -28,9 +28,8 @@ public class JiraUtility {
 				.extract()
 				.response();
 
-		System.out.println(response.asString());
-
 		if (response.getStatusCode() == 201) {
+			System.out.println("Test cycle created with name: "+cycleName);
 			return response.jsonPath().getString("key");
 		} else {
 			System.err.println("Failed to create test cycle. Status code: " + response.getStatusCode());
@@ -38,8 +37,6 @@ public class JiraUtility {
 			return null;
 		}
 	}
-
-
 
 	public void addTestCaseToCycleAndUpdateResults(String cycleId, String testCaseId, String status) {
 		RestAssured.baseURI = BASE_URL;
@@ -55,21 +52,16 @@ public class JiraUtility {
 				.header("Content-Type", "application/json")
 				.header("Authorization", AUTH_TOKEN)
 				.body(requestParams.toString())
-				.log().all().post("testexecutions")
+				.post("testexecutions")
 				.then()
 				.extract()
 				.response();
 
-		System.out.println(response.asString());
-		if (response.getStatusCode() != 201) {
+		if (response.getStatusCode() == 201) {
+			System.out.println("Test Case: "+testCaseId+" added to the Cycle with status: "+status);
+		} else {
 			System.err.println("Failed to add test case to cycle. Status code: " + response.getStatusCode());
 			System.err.println("Response body: " + response.getBody().asString());
 		}
 	}
-
-	//	private static List<String> getTestCaseIds() {
-	//		// Implement this method to return the list of test case IDs from your test execution
-	//		return Arrays.asList("KN-T1", "KN-T2"); // Replace with actual test case IDs
-	//	}
-
 }

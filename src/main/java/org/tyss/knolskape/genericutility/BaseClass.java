@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -18,6 +19,7 @@ import org.tyss.knolskape.workflowutility.CommonWorkflowsUtility;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
+	public ExcelUtility excelUtility = new ExcelUtility();
 	public FileUtility fileUtility = new FileUtility();
 	public JavaUtility javaUtility = new JavaUtility();
 	public JiraUtility jiraUtility = new JiraUtility();
@@ -35,7 +37,6 @@ public class BaseClass {
 		instance = UtilityObjectClass.getInstance();
 		clientName = System.getProperty("ClientName", config.getParameter("ClientName"));
 		instance.setClientName(clientName);
-		System.out.println(clientName);
 		cycleId = jiraUtility.createTestCycle(clientName+"_"+javaUtility.getDateAndTimeInSpecifiedFormat("yyyyMMdd_HHmmss"));
 		instance.setCycleId(cycleId);
 	}
@@ -45,9 +46,7 @@ public class BaseClass {
 		System.out.println("*********Open Browser*********");
 		String browserName = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, "BROWSER_NAME");
 		clientName = instance.getClientName();
-		System.out.println(clientName);
 		String url = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, clientName+"_URL");
-		System.out.println(url);
 
 		if (browserName.trim().equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -73,7 +72,8 @@ public class BaseClass {
 	}
 
 	@BeforeMethod
-	public void configBM() {
+	public void configBM(ITestResult result) {
+		System.out.println("Test Case: "+result.getMethod().getMethodName()+" execution has been triggered.");
 		//		System.out.println("*********SignIn to the Application*********");
 		//		commonFlowUtility.loginToApplication(driver, email, password);
 	}
@@ -82,7 +82,6 @@ public class BaseClass {
 	public void configAM(ITestResult result) {
 		//		System.out.println("*********Sign from the Application*********");
 		cycleId = instance.getCycleId();
-		System.out.println(cycleId);
 		if (result.getStatus() == ITestResult.SUCCESS) {
 			jiraUtility.addTestCaseToCycleAndUpdateResults(cycleId, testCaseId, "Pass");
 		} else if (result.getStatus() == ITestResult.FAILURE) {

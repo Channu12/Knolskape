@@ -13,6 +13,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 public class WebDriverUtility {
 	JavaUtility javaUtility = new JavaUtility();
@@ -77,6 +78,7 @@ public class WebDriverUtility {
 				int respCode = connection.getResponseCode();
 				if (respCode >= 400) {
 					System.out.println(url + " is a broken link");
+					Assert.fail();
 				} else {
 					System.out.println(url + " is a valid link");
 				}
@@ -84,5 +86,13 @@ public class WebDriverUtility {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public String getTextFromListOfWebElementsInString(List<WebElement> element) {
+		String text = "";
+		for (WebElement webElement : element) {
+			text = text + webElement.getText()+" ";
+		}
+		return text.trim();
 	}
 }

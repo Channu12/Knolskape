@@ -4,11 +4,11 @@ import org.testng.annotations.Test;
 import org.tyss.knolskape.genericutility.BaseClass;
 import org.tyss.knolskape.genericutility.IConstants;
 
-public class CheckTheExpectedElementsArePresentInUI extends BaseClass {
+public class CheckWhetherLinksAreBrokenTest extends BaseClass {
 
 	@Test
-	public void checkTheExpectedElementsArePresentInUI() {
-		testCaseId = "KN-T3";
+	public void checkWhetherLinksAreBroken() {
+		testCaseId = "KN-T2";
 
 		// Welcome Page Links Verification
 		webDriverUtility.checkForBrokenLinks(driver);
@@ -18,9 +18,8 @@ public class CheckTheExpectedElementsArePresentInUI extends BaseClass {
 		String password = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, clientName+"_PASSWORD");
 		commonWorkflowsUtility.signInToApplication(driver, email, password);
 		webDriverUtility.waitForSeconds(6);
-
+		
 		// Home Page Links Verification
 		webDriverUtility.checkForBrokenLinks(driver);
-
 	}
 }

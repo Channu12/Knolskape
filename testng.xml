@@ -5,8 +5,8 @@
 	<test thread-count="5" name="Test">
 		<classes>
 			<class name="org.tyss.knolskape.testcases.UI_UX_Test" />
-			<class name="org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken" />
-			<class name="org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI" />
+			<class name="org.tyss.knolskape.testcases.CheckWhetherLinksAreBrokenTest" />
+			<class name="org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUITest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

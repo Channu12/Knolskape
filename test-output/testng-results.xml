@@ -2,104 +2,104 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-01T18:07:25 IST" name="Suite" finished-at="2024-07-01T18:08:06 IST" duration-ms="41073">
+  <suite started-at="2024-07-01T19:53:10 IST" name="Suite" finished-at="2024-07-01T19:53:52 IST" duration-ms="41875">
     <groups>
     </groups>
-    <test started-at="2024-07-01T18:07:25 IST" name="Test" finished-at="2024-07-01T18:08:06 IST" duration-ms="41073">
+    <test started-at="2024-07-01T19:53:10 IST" name="Test" finished-at="2024-07-01T19:53:52 IST" duration-ms="41875">
       <class name="org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken">
-        <test-method is-config="true" signature="configBC()[pri:0, instance:org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken@1a245833]" started-at="2024-07-01T18:07:38 IST" name="configBC" finished-at="2024-07-01T18:07:41 IST" duration-ms="2109" status="PASS">
+        <test-method is-config="true" signature="configBC()[pri:0, instance:org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken@4201c465]" started-at="2024-07-01T19:53:25 IST" name="configBC" finished-at="2024-07-01T19:53:27 IST" duration-ms="1721" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configBC -->
-        <test-method signature="checkWhetherLinksAreBroken()[pri:0, instance:org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken@1a245833]" started-at="2024-07-01T18:07:41 IST" name="checkWhetherLinksAreBroken" finished-at="2024-07-01T18:07:51 IST" duration-ms="10499" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkWhetherLinksAreBroken -->
-        <test-method is-config="true" signature="configBM()[pri:0, instance:org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken@1a245833]" started-at="2024-07-01T18:07:41 IST" name="configBM" finished-at="2024-07-01T18:07:41 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="configBM()[pri:0, instance:org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken@4201c465]" started-at="2024-07-01T19:53:27 IST" name="configBM" finished-at="2024-07-01T19:53:27 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configBM -->
-        <test-method is-config="true" signature="configAM(org.testng.ITestResult)[pri:0, instance:org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken@1a245833]" started-at="2024-07-01T18:07:51 IST" name="configAM" finished-at="2024-07-01T18:07:52 IST" duration-ms="1361" status="PASS">
+        <test-method signature="checkWhetherLinksAreBroken()[pri:0, instance:org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken@4201c465]" started-at="2024-07-01T19:53:27 IST" name="checkWhetherLinksAreBroken" finished-at="2024-07-01T19:53:38 IST" duration-ms="10761" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkWhetherLinksAreBroken -->
+        <test-method is-config="true" signature="configAM(org.testng.ITestResult)[pri:0, instance:org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken@4201c465]" started-at="2024-07-01T19:53:38 IST" name="configAM" finished-at="2024-07-01T19:53:39 IST" duration-ms="1315" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=checkWhetherLinksAreBroken status=SUCCESS method=CheckWhetherLinksAreBroken.checkWhetherLinksAreBroken()[pri:0, instance:org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken@1a245833] output={null}]]]>
+                <![CDATA[[TestResult name=checkWhetherLinksAreBroken status=SUCCESS method=CheckWhetherLinksAreBroken.checkWhetherLinksAreBroken()[pri:0, instance:org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken@4201c465] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configAM -->
-        <test-method is-config="true" signature="configAC()[pri:0, instance:org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken@1a245833]" started-at="2024-07-01T18:07:52 IST" name="configAC" finished-at="2024-07-01T18:07:53 IST" duration-ms="120" status="PASS">
+        <test-method is-config="true" signature="configAC()[pri:0, instance:org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken@4201c465]" started-at="2024-07-01T19:53:39 IST" name="configAC" finished-at="2024-07-01T19:53:39 IST" duration-ms="130" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configAC -->
       </class> <!-- org.tyss.knolskape.testcases.CheckWhetherLinksAreBroken -->
       <class name="org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI">
-        <test-method is-config="true" signature="configBC()[pri:0, instance:org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI@673fdbce]" started-at="2024-07-01T18:07:53 IST" name="configBC" finished-at="2024-07-01T18:07:54 IST" duration-ms="1982" status="PASS">
+        <test-method is-config="true" signature="configBC()[pri:0, instance:org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI@5b799640]" started-at="2024-07-01T19:53:39 IST" name="configBC" finished-at="2024-07-01T19:53:41 IST" duration-ms="1774" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configBC -->
-        <test-method is-config="true" signature="configBM()[pri:0, instance:org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI@673fdbce]" started-at="2024-07-01T18:07:54 IST" name="configBM" finished-at="2024-07-01T18:07:54 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- configBM -->
-        <test-method signature="checkTheExpectedElementsArePresentInUI()[pri:0, instance:org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI@673fdbce]" started-at="2024-07-01T18:07:54 IST" name="checkTheExpectedElementsArePresentInUI" finished-at="2024-07-01T18:08:04 IST" duration-ms="9766" status="PASS">
+        <test-method signature="checkTheExpectedElementsArePresentInUI()[pri:0, instance:org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI@5b799640]" started-at="2024-07-01T19:53:41 IST" name="checkTheExpectedElementsArePresentInUI" finished-at="2024-07-01T19:53:51 IST" duration-ms="9785" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- checkTheExpectedElementsArePresentInUI -->
-        <test-method is-config="true" signature="configAM(org.testng.ITestResult)[pri:0, instance:org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI@673fdbce]" started-at="2024-07-01T18:08:04 IST" name="configAM" finished-at="2024-07-01T18:08:06 IST" duration-ms="1306" status="PASS">
+        <test-method is-config="true" signature="configBM()[pri:0, instance:org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI@5b799640]" started-at="2024-07-01T19:53:41 IST" name="configBM" finished-at="2024-07-01T19:53:41 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configBM -->
+        <test-method is-config="true" signature="configAM(org.testng.ITestResult)[pri:0, instance:org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI@5b799640]" started-at="2024-07-01T19:53:51 IST" name="configAM" finished-at="2024-07-01T19:53:52 IST" duration-ms="1282" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=checkTheExpectedElementsArePresentInUI status=SUCCESS method=CheckTheExpectedElementsArePresentInUI.checkTheExpectedElementsArePresentInUI()[pri:0, instance:org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI@673fdbce] output={null}]]]>
+                <![CDATA[[TestResult name=checkTheExpectedElementsArePresentInUI status=SUCCESS method=CheckTheExpectedElementsArePresentInUI.checkTheExpectedElementsArePresentInUI()[pri:0, instance:org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI@5b799640] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configAM -->
-        <test-method is-config="true" signature="configAC()[pri:0, instance:org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI@673fdbce]" started-at="2024-07-01T18:08:06 IST" name="configAC" finished-at="2024-07-01T18:08:06 IST" duration-ms="114" status="PASS">
+        <test-method is-config="true" signature="configAC()[pri:0, instance:org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI@5b799640]" started-at="2024-07-01T19:53:52 IST" name="configAC" finished-at="2024-07-01T19:53:52 IST" duration-ms="148" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configAC -->
       </class> <!-- org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUI -->
       <class name="org.tyss.knolskape.testcases.UI_UX_Test">
-        <test-method is-config="true" signature="configBS(org.testng.xml.XmlTest)[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@71075444]" started-at="2024-07-01T18:07:21 IST" name="configBS" finished-at="2024-07-01T18:07:25 IST" duration-ms="3606" status="PASS">
+        <test-method is-config="true" signature="configBS(java.lang.String)[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@6f53b8a]" started-at="2024-07-01T19:53:06 IST" name="configBS" finished-at="2024-07-01T19:53:10 IST" duration-ms="4153" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.xml.XmlTest@2817570d]]>
+                <![CDATA[COMM_KSPL]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configBS -->
-        <test-method is-config="true" signature="configBC()[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@71075444]" started-at="2024-07-01T18:07:25 IST" name="configBC" finished-at="2024-07-01T18:07:28 IST" duration-ms="3065" status="PASS">
+        <test-method is-config="true" signature="configBC()[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@6f53b8a]" started-at="2024-07-01T19:53:10 IST" name="configBC" finished-at="2024-07-01T19:53:14 IST" duration-ms="3840" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configBC -->
-        <test-method is-config="true" signature="configBM()[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@71075444]" started-at="2024-07-01T18:07:28 IST" name="configBM" finished-at="2024-07-01T18:07:28 IST" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- configBM -->
-        <test-method signature="ui_ux_Test()[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@71075444]" started-at="2024-07-01T18:07:28 IST" name="ui_ux_Test" finished-at="2024-07-01T18:07:37 IST" duration-ms="9124" status="PASS">
+        <test-method signature="ui_ux_Test()[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@6f53b8a]" started-at="2024-07-01T19:53:14 IST" name="ui_ux_Test" finished-at="2024-07-01T19:53:24 IST" duration-ms="9567" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ui_ux_Test -->
-        <test-method is-config="true" signature="configAM(org.testng.ITestResult)[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@71075444]" started-at="2024-07-01T18:07:37 IST" name="configAM" finished-at="2024-07-01T18:07:38 IST" duration-ms="1437" status="PASS">
+        <test-method is-config="true" signature="configBM()[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@6f53b8a]" started-at="2024-07-01T19:53:14 IST" name="configBM" finished-at="2024-07-01T19:53:14 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- configBM -->
+        <test-method is-config="true" signature="configAM(org.testng.ITestResult)[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@6f53b8a]" started-at="2024-07-01T19:53:24 IST" name="configAM" finished-at="2024-07-01T19:53:25 IST" duration-ms="1386" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ui_ux_Test status=SUCCESS method=UI_UX_Test.ui_ux_Test()[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@71075444] output={null}]]]>
+                <![CDATA[[TestResult name=ui_ux_Test status=SUCCESS method=UI_UX_Test.ui_ux_Test()[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@6f53b8a] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configAM -->
-        <test-method is-config="true" signature="configAC()[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@71075444]" started-at="2024-07-01T18:07:38 IST" name="configAC" finished-at="2024-07-01T18:07:38 IST" duration-ms="139" status="PASS">
+        <test-method is-config="true" signature="configAC()[pri:0, instance:org.tyss.knolskape.testcases.UI_UX_Test@6f53b8a]" started-at="2024-07-01T19:53:25 IST" name="configAC" finished-at="2024-07-01T19:53:25 IST" duration-ms="123" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configAC -->

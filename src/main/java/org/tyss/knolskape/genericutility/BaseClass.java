@@ -39,7 +39,7 @@ public class BaseClass {
 		cycleId = jiraUtility.createTestCycle(clientName+"_"+javaUtility.getDateAndTimeInSpecifiedFormat("yyyyMMdd_HHmmss"));
 		instance.setCycleId(cycleId);
 	}
-
+	
 	@BeforeClass
 	public void configBC() {
 		System.out.println("*********Open Browser*********");

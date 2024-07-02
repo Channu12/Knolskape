@@ -39,9 +39,10 @@ public class BaseClass {
 	}
 
 	@BeforeClass
-	public void configBC() {
+	public void configBC(XmlTest config) {
 		System.out.println("*********Open Browser*********");
-		String browserName = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, "BROWSER_NAME");
+		String browserName = System.getProperty("BrowserName", config.getParameter("BrowserName"));
+		//		String browserName = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, "BROWSER_NAME");
 		clientName = instance.getClientName();
 		String url = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, clientName+"_URL");
 

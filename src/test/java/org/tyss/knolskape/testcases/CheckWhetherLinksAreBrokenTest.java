@@ -17,7 +17,7 @@ public class CheckWhetherLinksAreBrokenTest extends BaseClass {
 		String email = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, clientName+"_EMAIL");
 		String password = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, clientName+"_PASSWORD");
 		commonWorkflowsUtility.signInToApplication(driver, email, password);
-		webDriverUtility.waitForSeconds(5);
+		webDriverUtility.waitForSeconds(6);
 		
 		// Home Page Links Verification
 		webDriverUtility.checkForBrokenLinks(driver);

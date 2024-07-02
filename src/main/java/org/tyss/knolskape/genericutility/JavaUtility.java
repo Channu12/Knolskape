@@ -122,71 +122,69 @@ public class JavaUtility {
 		}
 	}
 
-//	public boolean compareTwoImagesWithoutCOnfidenceScore(String image1Path, String image2Path, String differenceFolderDirectory) throws IOException {
-//		resizeImage(image1Path, image2Path);
-//
-//		try {
-//			BufferedImage image1 = ImageIO.read(new File(image1Path));
-//			BufferedImage image2 = ImageIO.read(new File(image2Path));
-//
-//			int width = image1.getWidth();
-//			int height = image1.getHeight();
-//
-//			// Ensure the images are the same size
-//			if (width != image2.getWidth() || height != image2.getHeight()) {
-//				System.out.println("Images are not of the same size.");
-//				return false;
-//			}
-//
-//			BufferedImage diffImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-//			boolean differencesFound = false;
-//
-//			// Compare images pixel by pixel
-//			for (int y = 0; y < height; y++) {
-//				for (int x = 0; x < width; x++) {
-//					int rgb1 = image1.getRGB(x, y);
-//					int rgb2 = image2.getRGB(x, y);
-//
-//					if (rgb1 != rgb2) {
-//						differencesFound = true;
-//						// Highlight the difference in red color
-//						diffImage.setRGB(x, y, Color.RED.getRGB());
-//					} else {
-//						// Keep the pixel from image1 in the difference image
-//						diffImage.setRGB(x, y, rgb1);
-//					}
-//				}
-//			}
-//			
-//			if (!differencesFound) {
-//				System.out.println("No differences found between the images.");
-//				return true;
-//			} else {
-//				// Create output folder with timestamp
-//				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
-//				String timestamp = sdf.format(new Date());
-//				String outputPath = differenceFolderDirectory + File.separator + "Difference_Image_" + timestamp + ".png";
-//				File outputFolderFile = new File(differenceFolderDirectory);
-//				if (!outputFolderFile.exists()) {
-//					outputFolderFile.mkdirs(); // Create output folder if it doesn't exist
-//				}
-//
-//				// Save the difference image
-//				File diffFile = new File(outputPath);
-//				ImageIO.write(diffImage, "png", diffFile);
-//
-//				System.out.println("Difference image saved successfully: " + outputPath);
-//				return false;
-//			}
-//
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//			return false;
-//		}
-//	}
+	//	public boolean compareTwoImagesWithoutCOnfidenceScore(String image1Path, String image2Path, String differenceFolderDirectory) throws IOException {
+	//		resizeImage(image1Path, image2Path);
+	//
+	//		try {
+	//			BufferedImage image1 = ImageIO.read(new File(image1Path));
+	//			BufferedImage image2 = ImageIO.read(new File(image2Path));
+	//
+	//			int width = image1.getWidth();
+	//			int height = image1.getHeight();
+	//
+	//			// Ensure the images are the same size
+	//			if (width != image2.getWidth() || height != image2.getHeight()) {
+	//				System.out.println("Images are not of the same size.");
+	//				return false;
+	//			}
+	//
+	//			BufferedImage diffImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+	//			boolean differencesFound = false;
+	//
+	//			// Compare images pixel by pixel
+	//			for (int y = 0; y < height; y++) {
+	//				for (int x = 0; x < width; x++) {
+	//					int rgb1 = image1.getRGB(x, y);
+	//					int rgb2 = image2.getRGB(x, y);
+	//
+	//					if (rgb1 != rgb2) {
+	//						differencesFound = true;
+	//						// Highlight the difference in red color
+	//						diffImage.setRGB(x, y, Color.RED.getRGB());
+	//					} else {
+	//						// Keep the pixel from image1 in the difference image
+	//						diffImage.setRGB(x, y, rgb1);
+	//					}
+	//				}
+	//			}
+	//			
+	//			if (!differencesFound) {
+	//				System.out.println("No differences found between the images.");
+	//				return true;
+	//			} else {
+	//				// Create output folder with timestamp
+	//				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+	//				String timestamp = sdf.format(new Date());
+	//				String outputPath = differenceFolderDirectory + File.separator + "Difference_Image_" + timestamp + ".png";
+	//				File outputFolderFile = new File(differenceFolderDirectory);
+	//				if (!outputFolderFile.exists()) {
+	//					outputFolderFile.mkdirs(); // Create output folder if it doesn't exist
+	//				}
+	//
+	//				// Save the difference image
+	//				File diffFile = new File(outputPath);
+	//				ImageIO.write(diffImage, "png", diffFile);
+	//
+	//				System.out.println("Difference image saved successfully: " + outputPath);
+	//				return false;
+	//			}
+	//
+	//		} catch (IOException e) {
+	//			e.printStackTrace();
+	//			return false;
+	//		}
+	//	}
 
-	
-	
 	public Boolean compareTwoImagesWithoutCOnfidenceScore(String imagePath1, String imagePath2, String differenceFolderDirectory, double confidenceScore) {
 
 		Boolean flag = false;
@@ -258,7 +256,7 @@ public class JavaUtility {
 					}
 				}
 			}
-			
+
 			// Create output folder with timestamp
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
 			String timestamp = sdf.format(new Date());
@@ -267,18 +265,14 @@ public class JavaUtility {
 			if (!outputFolderFile.exists()) {
 				outputFolderFile.mkdirs(); // Create output folder if it doesn't exist
 			}
-			
+
 			// Save the highlighted difference image
 			Imgcodecs.imwrite(outputPath, originalColored);
 			System.out.println("Difference image is stored at: "+outputPath);
 		}
 		return flag;
 	}
-	
-	
-	
-	
-	
+
 	private static void resizeImage(String imagePathToBeResized, String referenceImagePath) throws IOException {
 
 		// Read the reference image from the file system

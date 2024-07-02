@@ -56,9 +56,9 @@ public class JiraUtility {
 				.then()
 				.extract()
 				.response();
-
+		
 		if (response.getStatusCode() == 201) {
-			System.out.println("Test Case: "+testCaseId+" added to the Cycle with status: "+status);
+			System.out.println("Test Case with Issue Id: "+testCaseId+" added to the Cycle with status: "+status);
 		} else {
 			System.err.println("Failed to add test case to cycle. Status code: " + response.getStatusCode());
 			System.err.println("Response body: " + response.getBody().asString());

@@ -1,12 +1,9 @@
 package org.tyss.knolskape.genericutility;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -51,24 +48,18 @@ public class BaseClass {
 		if (browserName.trim().equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
-			driver.manage().window().maximize();
-			driver.get(url);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		} else if(browserName.trim().equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
-			driver.manage().window().maximize();
-			driver.get(url);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		} else if(browserName.trim().equalsIgnoreCase("edge")){
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
-			driver.manage().window().maximize();
-			driver.get(url);
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		} else {
-			System.out.println("Invalid Browser Name given. please try again");
+			System.err.println("Invalid Browser Name given. please try again");
 		}
+		webDriverUtility.maximizeBrowserWindow(driver);
+		webDriverUtility.navigateToUrl(driver, url);
+		webDriverUtility.implicitWaitForSeconds(driver, IConstants.IMPLICIT_WAIT_TIME);
 	}
 
 	@BeforeMethod
@@ -80,7 +71,7 @@ public class BaseClass {
 
 	@AfterMethod
 	public void configAM(ITestResult result) {
-		//		System.out.println("*********Sign from the Application*********");
+		//		System.out.println("*********Sign out from the Application*********");
 		cycleId = instance.getCycleId();
 		if (result.getStatus() == ITestResult.SUCCESS) {
 			jiraUtility.addTestCaseToCycleAndUpdateResults(cycleId, testCaseId, "Pass");
@@ -94,6 +85,9 @@ public class BaseClass {
 	@AfterClass
 	public void configAC() {
 		System.out.println("*********Close Browser*********");
-		driver.quit();
+		try {
+			driver.quit();
+		} catch (Exception e) {
+		}
 	}
 }

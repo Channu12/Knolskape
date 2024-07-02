@@ -15,16 +15,16 @@ public class CheckTheExpectedElementsArePresentInUITest extends BaseClass {
 	@Test
 	public void checkTheExpectedElementsArePresentInUI() throws EncryptedDocumentException, IOException {
 		testCaseId = "KN-T3";
-		String expectedElements;
-		String actualElements;
-
+		String expectedTextsOfElements;
+		String actualTextsOfElements;
+		
 		// Create Object for Welcome Page
 		WelcomePage welcomePage = new WelcomePage(driver);
 
 		// Welcome Page Elements Verification
-		expectedElements = excelUtility.getDataFromExcelCellBasedOnUniqueDataAndHeader(IConstants.EXCEL_FILE_PATH, "Sheet1", clientName, "WelcomePage Elements");
-		actualElements = webDriverUtility.getTextFromListOfWebElementsInString(welcomePage.getListOfStyledText());
-		Assert.assertEquals(expectedElements, actualElements);
+		expectedTextsOfElements = excelUtility.getDataFromExcelCellBasedOnUniqueDataAndHeader(IConstants.EXCEL_FILE_PATH, "Sheet1", clientName, "WelcomePage Elements");
+		actualTextsOfElements = webDriverUtility.getTextFromListOfWebElementsInString(welcomePage.getListOfStyledText());
+		Assert.assertEquals(expectedTextsOfElements, actualTextsOfElements);
 		
 		// SignIn to application
 		String email = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, clientName+"_EMAIL");
@@ -36,8 +36,8 @@ public class CheckTheExpectedElementsArePresentInUITest extends BaseClass {
 		HomePage homePage = new HomePage(driver);
 
 		// Welcome Page Elements Verification
-		expectedElements = excelUtility.getDataFromExcelCellBasedOnUniqueDataAndHeader(IConstants.EXCEL_FILE_PATH, "Sheet1", clientName, "HomePage Elements");
-		actualElements = webDriverUtility.getTextFromListOfWebElementsInString(homePage.getListOfStyledText());
-		Assert.assertEquals(expectedElements, actualElements);
+		expectedTextsOfElements = excelUtility.getDataFromExcelCellBasedOnUniqueDataAndHeader(IConstants.EXCEL_FILE_PATH, "Sheet1", clientName, "HomePage Elements");
+		actualTextsOfElements = webDriverUtility.getTextFromListOfWebElementsInString(homePage.getListOfStyledText());
+		Assert.assertEquals(expectedTextsOfElements, actualTextsOfElements);
 	}
 }

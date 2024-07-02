@@ -6,6 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -17,6 +18,18 @@ import org.testng.Assert;
 
 public class WebDriverUtility {
 	JavaUtility javaUtility = new JavaUtility();
+
+	public void navigateToUrl(WebDriver driver, String url) {
+		driver.get(url);	
+	}
+
+	public void maximizeBrowserWindow(WebDriver driver) {
+		driver.manage().window().maximize();
+	}
+	
+	public void implicitWaitForSeconds(WebDriver driver, int seconds) {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
+	}
 
 	public void enterInputIntoElement(WebDriver driver, String input, WebElement element) {
 		element.sendKeys(input);
@@ -70,7 +83,7 @@ public class WebDriverUtility {
 				System.out.println("URL is either not configured for anchor tag or it is empty");
 				continue;
 			}
-			
+
 			try {
 				HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
 				connection.setRequestMethod("HEAD");

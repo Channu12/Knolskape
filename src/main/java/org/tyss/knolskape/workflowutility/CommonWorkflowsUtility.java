@@ -30,7 +30,7 @@ public class CommonWorkflowsUtility {
 		String actualWelcomePagePath = webDriverUtility.getScreenshotOfCurrentPage(driver, pageName, resourcesFolderPath+"\\ActualImages\\"+appName);
 		
 		// Compare screenshot with golden image
-		boolean isPagesAreSame = javaUtility.compareTwoImages(actualWelcomePagePath, resourcesFolderPath+"\\GoldenImages\\"+appName+"\\"+pageName+".png", resourcesFolderPath+"\\DifferenceImages\\"+appName, confidenceScore);
+		boolean isPagesAreSame = javaUtility.compareTwoImagesWithoutCOnfidenceScore(actualWelcomePagePath, resourcesFolderPath+"\\GoldenImages\\"+appName+"\\"+pageName+".png", resourcesFolderPath+"\\DifferenceImages\\"+appName, confidenceScore);
 		return isPagesAreSame;
 	}
 }

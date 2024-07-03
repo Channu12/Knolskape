@@ -7,6 +7,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.Duration;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -14,7 +15,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 public class WebDriverUtility {
 	JavaUtility javaUtility = new JavaUtility();
@@ -26,7 +26,7 @@ public class WebDriverUtility {
 	public void maximizeBrowserWindow(WebDriver driver) {
 		driver.manage().window().maximize();
 	}
-	
+
 	public void implicitWaitForSeconds(WebDriver driver, int seconds) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
 	}
@@ -64,6 +64,7 @@ public class WebDriverUtility {
 		// Copy the screenshot to the destination
 		try {
 			Files.copy(screenshot.toPath(), destinationFile.toPath());
+			UtilityObjectClass.getExtentTest().info("Screenshot saved to: " + destinationFile.getAbsolutePath());
 			System.out.println("Screenshot saved to: " + destinationFile.getAbsolutePath());
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -71,16 +72,19 @@ public class WebDriverUtility {
 		return destinationFile.getAbsolutePath();
 	}
 
-	public void checkForBrokenLinks(WebDriver driver) {
+	public boolean checkForBrokenLinks(WebDriver driver) {
+		List<Boolean> result = new LinkedList<>();
 		List<WebElement> links = driver.findElements(By.tagName("a"));
 		//		links.addAll(driver.findElements(By.tagName("img")));
 
+		UtilityObjectClass.getExtentTest().info("Total links on the page: " + links.size());
 		System.out.println("Total links on the page: " + links.size());
 
 		for (WebElement element : links) {
 			String url = element.getAttribute("href");
 			if (url == null || url.isEmpty()) {
-				System.out.println("URL is either not configured for anchor tag or it is empty");
+				UtilityObjectClass.getExtentTest().info(url+" is either not configured for anchor tag or it is empty");
+				System.out.println(url+" is either not configured for anchor tag or it is empty");
 				continue;
 			}
 
@@ -90,14 +94,22 @@ public class WebDriverUtility {
 				connection.connect();
 				int respCode = connection.getResponseCode();
 				if (respCode >= 400) {
+					UtilityObjectClass.getExtentTest().fail(url + " is a broken link.");
 					System.out.println(url + " is a broken link");
-					Assert.fail();
+					result.add(false);
 				} else {
+					UtilityObjectClass.getExtentTest().pass(url + " is a valid link");
 					System.out.println(url + " is a valid link");
+					result.add(true);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}
+		if (result.contains(false)) {
+			return false;
+		} else {
+			return true;
 		}
 	}
 

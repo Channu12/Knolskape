@@ -20,32 +20,32 @@ public class BaseClass {
 	public FileUtility fileUtility = new FileUtility();
 	public JavaUtility javaUtility = new JavaUtility();
 	public JiraUtility jiraUtility = new JiraUtility();
+	public AssertionUtility assertionUtility = new AssertionUtility();
 	public RestAssuredUtility restAssuredUtility = new RestAssuredUtility();
 	public WebDriverUtility webDriverUtility = new WebDriverUtility();
 	public CommonWorkflowsUtility commonWorkflowsUtility = new CommonWorkflowsUtility();
-	static UtilityObjectClass instance;
 	public WebDriver driver;
 	public String clientName;
-	public String testCaseId;
 	String cycleId;
+	String browserName;
 
 	@BeforeSuite
 	public void configBS(XmlTest config) {
-		instance = UtilityObjectClass.getInstance();
+		UtilityObjectClass.setXmlTest(config);
 		clientName = System.getProperty("ClientName", config.getParameter("ClientName"));
-		instance.setClientName(clientName);
+		UtilityObjectClass.setClientName(clientName);
 		cycleId = jiraUtility.createTestCycle(clientName+"_"+javaUtility.getDateAndTimeInSpecifiedFormat("yyyyMMdd_HHmmss"));
-		instance.setCycleId(cycleId);
+		UtilityObjectClass.setCycleId(cycleId);
 	}
 
 	@BeforeClass
-	public void configBC(XmlTest config) {
+	public void configBC() {
 		System.out.println("*********Open Browser*********");
-		String browserName = System.getProperty("BrowserName", config.getParameter("BrowserName"));
-		//		String browserName = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, "BROWSER_NAME");
-		clientName = instance.getClientName();
+		clientName = UtilityObjectClass.getClientName();
 		String url = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, clientName+"_URL");
-
+		XmlTest config = UtilityObjectClass.getXmlTest();
+		String browserName = System.getProperty("BrowserName", config.getParameter("BrowserName"));
+		UtilityObjectClass.setBrowserName(browserName);
 		if (browserName.trim().equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
@@ -55,9 +55,8 @@ public class BaseClass {
 		} else if(browserName.trim().equalsIgnoreCase("edge")){
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
-		} else {
-			System.err.println("Invalid Browser Name given. please try again");
 		}
+		UtilityObjectClass.setDriver(driver);
 		webDriverUtility.maximizeBrowserWindow(driver);
 		webDriverUtility.navigateToUrl(driver, url);
 		webDriverUtility.implicitWaitForSeconds(driver, IConstants.IMPLICIT_WAIT_TIME);
@@ -73,7 +72,9 @@ public class BaseClass {
 	@AfterMethod
 	public void configAM(ITestResult result) {
 		//		System.out.println("*********Sign out from the Application*********");
-		cycleId = instance.getCycleId();
+		cycleId = UtilityObjectClass.getCycleId();
+		String testCaseId = UtilityObjectClass.getTestCaseId();
+		System.out.println("Id:==="+testCaseId);
 		if (result.getStatus() == ITestResult.SUCCESS) {
 			jiraUtility.addTestCaseToCycleAndUpdateResults(cycleId, testCaseId, "Pass");
 		} else if (result.getStatus() == ITestResult.FAILURE) {

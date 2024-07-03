@@ -31,7 +31,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>7.1.0</version>
+			<version>7.5.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.aventstack</groupId>
@@ -48,14 +48,15 @@
 			<artifactId>json</artifactId>
 			<version>20231013</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.sikulix/sikulixapi -->
-<dependency>
-	<groupId>org.openpnp</groupId>
-	<artifactId>opencv</artifactId>
-	<version>3.4.2-1</version>
-</dependency>
-<!-- Thanks for using https://jar-download.com -->
-
-
+		<dependency>
+			<groupId>org.openpnp</groupId>
+			<artifactId>opencv</artifactId>
+			<version>3.4.2-1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>5.0.9</version>
+		</dependency>
 	</dependencies>
 </project>

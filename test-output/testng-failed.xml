@@ -3,18 +3,21 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <parameter name="BrowserName" value="Chrome"/>
   <parameter name="ClientName" value="COMM_KSPL"/>
+  <listeners>
+    <listener class-name="org.tyss.knolskape.genericutility.ListenerImplementationClass"/>
+  </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUITest">
+      <class name="org.tyss.knolskape.testcases.CheckWhetherLinksAreBrokenTest">
         <methods>
-          <include name="checkTheExpectedElementsArePresentInUI"/>
           <include name="configAC"/>
           <include name="configBC"/>
           <include name="configBS"/>
           <include name="configBM"/>
           <include name="configAM"/>
+          <include name="checkWhetherLinksAreBroken"/>
         </methods>
-      </class> <!-- org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInUITest -->
+      </class> <!-- org.tyss.knolskape.testcases.CheckWhetherLinksAreBrokenTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

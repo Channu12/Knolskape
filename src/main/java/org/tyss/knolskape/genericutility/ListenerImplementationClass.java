@@ -13,7 +13,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-public class ListenerImplementationClass  extends BaseClass implements ITestListener {
+public class ListenerImplementationClass implements ITestListener {
 
 	@Override
 	public void onStart(ITestContext context) {
@@ -63,8 +63,8 @@ public class ListenerImplementationClass  extends BaseClass implements ITestList
 	@Override
 	public void onFinish(ITestContext context) {
 		UtilityObjectClass.getExtentReports().flush();
-		if (driver != null) {
-			driver.quit();
+		if (UtilityObjectClass.getDriver() != null) {
+			UtilityObjectClass.getDriver().quit();
 		}
 	}
 

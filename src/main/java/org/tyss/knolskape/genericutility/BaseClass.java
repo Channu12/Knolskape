@@ -74,7 +74,6 @@ public class BaseClass {
 		//		System.out.println("*********Sign out from the Application*********");
 		cycleId = UtilityObjectClass.getCycleId();
 		String testCaseId = UtilityObjectClass.getTestCaseId();
-		System.out.println("Id:==="+testCaseId);
 		if (result.getStatus() == ITestResult.SUCCESS) {
 			jiraUtility.addTestCaseToCycleAndUpdateResults(cycleId, testCaseId, "Pass");
 		} else if (result.getStatus() == ITestResult.FAILURE) {

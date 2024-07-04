@@ -70,7 +70,7 @@ public class UtilityObjectClass {
 	}
 
 	public static void setBrowserName(String actBrowserName) {
-		cycleId.set(actBrowserName);
+		browserName.set(actBrowserName);
 	}
 	
 	public static String getTestCaseId() {

@@ -29,7 +29,7 @@ public class JiraUtility {
 				.response();
 
 		if (response.getStatusCode() == 201) {
-			System.out.println("Test cycle created with name: "+cycleName);
+			System.out.println("Test cycle created with name: "+cycleName+". Cycle Id: "+response.jsonPath().getString("key"));
 			return response.jsonPath().getString("key");
 		} else {
 			System.err.println("Failed to create test cycle. Status code: " + response.getStatusCode());

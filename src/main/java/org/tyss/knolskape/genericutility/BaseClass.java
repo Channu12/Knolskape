@@ -86,7 +86,7 @@ public class BaseClass {
 
 	@AfterClass
 	public void configAC() {
-		System.out.println("*********Close Browser*********");
+		System.out.println("*********Close Browser*********\r\n");
 		try {
 			driver.quit();
 		} catch (Exception e) {

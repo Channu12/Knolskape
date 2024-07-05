@@ -8,16 +8,16 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="org.tyss.knolskape.testcases.CheckWhetherLinksAreBrokenTest">
+      <class name="org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInGuiTest">
         <methods>
           <include name="configAC"/>
           <include name="configBC"/>
           <include name="configBS"/>
           <include name="configBM"/>
           <include name="configAM"/>
-          <include name="checkWhetherLinksAreBroken"/>
+          <include name="checkTheExpectedElementsArePresentInGuiTest"/>
         </methods>
-      </class> <!-- org.tyss.knolskape.testcases.CheckWhetherLinksAreBrokenTest -->
+      </class> <!-- org.tyss.knolskape.testcases.CheckTheExpectedElementsArePresentInGuiTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -19,7 +19,7 @@ public class JavaUtility {
 	public String getDateAndTimeInSpecifiedFormat(String format) {
 		return new SimpleDateFormat(format).format(new Date()).toString();
 	}
-
+	
 	public int getRandomNumber(int range) {
 		return new Random().nextInt(range);
 	}

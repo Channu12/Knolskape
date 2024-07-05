@@ -23,7 +23,7 @@ public class CheckWhetherLinksAreBrokenTest extends BaseClass {
 		String email = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, clientName+"_EMAIL");
 		String password = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, clientName+"_PASSWORD");
 		commonWorkflowsUtility.signInToApplication(driver, email, password);
-		webDriverUtility.waitForSeconds(6);
+		webDriverUtility.waitForSeconds(8);
 
 		UtilityObjectClass.getExtentTest().info("*******************Home Page********************");
 		// Home Page Links Verification

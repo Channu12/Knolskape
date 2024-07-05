@@ -32,7 +32,7 @@ public class CheckTheExpectedElementsArePresentInGuiTest extends BaseClass {
 		String email = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, clientName+"_EMAIL");
 		String password = fileUtility.getDataFromPropertyFile(IConstants.PROPERTY_FILE_PATH, clientName+"_PASSWORD");
 		commonWorkflowsUtility.signInToApplication(driver, email, password);
-		webDriverUtility.waitForSeconds(6);
+		webDriverUtility.waitForSeconds(8);
 
 		// Create Object for Home Page
 		HomePage homePage = new HomePage(driver);
